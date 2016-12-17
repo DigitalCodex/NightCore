@@ -1,0 +1,17 @@
+name: NightCore
+main: me.digitalcodex.nc.NightCore
+version: 1.0
+author: [DigitalCodex]
+depend: [TimberAPI, Vault, Factions]
+commands:
+   info:
+     description: View server info
+     aliases: [server, about, serverinfo, si]
+   enchants:
+     description: View & purchase custom enchants!
+   clearchat:
+     description: Clear public chat
+     aliases: [cc]
+   iclearchat:
+     description: Clear your own chat
+     aliases: [icc]

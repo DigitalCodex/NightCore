@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="C:/Users/Timber/Desktop/Files/MC Test Server/plugins/TimberAPI.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Timber/Desktop/Files/MC Test Server/spigot-1.8.8-R0.1-SNAPSHOT-latest.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Timber/Desktop/Files/MC Test Server/plugins/Vault (2).jar"/>
+	<classpathentry kind="lib" path="C:/Users/Timber/Desktop/Files/L7wWVu8N_Factions1.6.9.5-U0.1.19-RC2CrackedBSMC.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
