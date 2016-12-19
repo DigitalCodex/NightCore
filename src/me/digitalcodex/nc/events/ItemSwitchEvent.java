@@ -1,3 +1,4 @@
+
 package me.digitalcodex.nc.events;
 
 import org.bukkit.event.EventHandler;
@@ -19,22 +20,19 @@ public class ItemSwitchEvent implements Listener {
 	public void onSwitch(PlayerItemHeldEvent event) {
 		ItemStack item = event.getPlayer().getInventory().getItem(event.getNewSlot());
 		ItemStack item1 = event.getPlayer().getInventory().getItem(event.getPreviousSlot());
-		if(item == null && item1 != null) {
-			if(item1.containsEnchantment(CustomEnchants.getEnchant("Energy"))) {
-				if(event.getPlayer().hasPotionEffect(PotionEffectType.FAST_DIGGING)) {
-					event.getPlayer().removePotionEffect(PotionEffectType.FAST_DIGGING);
-					return;
-				}
-			}
+		if(item == null && item1 == null) {
+			return;
 		}
-		if(item != null && item.containsEnchantment(CustomEnchants.getEnchant("Energy"))) {
-			int level = item.getEnchantmentLevel(CustomEnchants.getEnchant("Energy"));
-			if(level == 1) {
-				level = 0;
-			} else { level = 1; }
-			event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, level));
-		} else if(item != null && !item.containsEnchantment(CustomEnchants.getEnchant("Energy")) && item1.containsEnchantment(CustomEnchants.getEnchant("Energy"))) {
-			event.getPlayer().removePotionEffect(PotionEffectType.FAST_DIGGING);
+		if(item == null || !CustomEnchants.getEnchant("Energy").getItemTarget().includes(item) 
+				|| !item.containsEnchantment(
+						CustomEnchants.getEnchant("Energy"))) {
+			if(event.getPlayer().hasPotionEffect(PotionEffectType.FAST_DIGGING)) {
+				event.getPlayer().removePotionEffect(PotionEffectType.FAST_DIGGING);
 		}
+	} else if(item != null && item.containsEnchantment(CustomEnchants.getEnchant("Energy"))) {
+		int level = item.getEnchantmentLevel(CustomEnchants.getEnchant("Energy"));
+		if(level == 1) { level = 0; } else { level = 1; }
+		event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, level));
 	}
+}
 }

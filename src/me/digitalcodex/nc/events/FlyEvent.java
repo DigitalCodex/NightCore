@@ -81,7 +81,7 @@ public class FlyEvent implements Listener {
 	
 	  @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	    public void onPlayerMove(PlayerMoveEvent event) {
-	        if (event.getPlayer().isOp()) {
+	        if (event.getPlayer().isOp() || event.getPlayer().hasPermission("fly.bypass")) {
 	            return;
 	        } else if (!event.getPlayer().getAllowFlight()) {
 	            return;
